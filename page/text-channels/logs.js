@@ -76,6 +76,7 @@ function getData(){
     //CHANGE INDEX OF ARRAY
     return logs;
 }
+
 function generateActions(logs){
     //get last time action for prevent fake logs
     var last_action_time = (logs.at(-1)).last_action;
