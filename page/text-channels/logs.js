@@ -1,5 +1,6 @@
 var logs;
 var xhr_data_obj;
+var channels;
 // Fomater for action (icons)
 function actionFormatter(value, row) {
     var action = '<div class="iconsbox-text-logs">';
@@ -28,7 +29,7 @@ function contentFormatter(value, row){
             }
             
             for(var attachment of row.removed_attachments){
-                attachments += '<button type="button" class="btn btn-primary attachmentbutton" data-bs-toggle="modal" data-bs-target="#attachmentmodal" data-bs-attachment-id="' + attachment.id + ' data-bs-message-id="' + row.message_id + '"><i class="far fa-file-alt attachmenticon"></i> ' + attachment.id + '</button>';
+                attachments += `<button type="button" class="btn btn-primary attachmentbutton" data-bs-toggle="modal" data-bs-target="#attachment_modal" data-bs-attachment_id="${attachment.id}" data-bs-message_id="${row.message_id}"><i class="far fa-file-alt attachmenticon"></i>${attachment.id}</button>`;
 
             }
         }
@@ -42,7 +43,7 @@ function contentFormatter(value, row){
         
         return object;
     }else if (row.action == 2){
-        object = '<button type="button" class="btn btn-primary attachmentbutton" data-bs-toggle="modal" data-bs-target="#attachmentmodal" data-bs-attachment-id="' + row.attachment_id + ' data-bs-message-id="' + row.message_id + '"><i class="far fa-file-alt attachmenticon"></i> ' + row.attachment_id + '</button>';
+        object = `<button type="button" class="btn btn-primary attachmentbutton" data-bs-toggle="modal" data-bs-target="#attachment_modal" data-bs-attachment_id="${row.attachment_id}" ' data-bs-message_id="${row.message_id}"><i class="far fa-file-alt attachmenticon"></i>${row.attachment_id}</button>`;
         return object;
     }
 }
@@ -65,6 +66,7 @@ function request_logs() {
     return result;
 }
 function getData(){
+    get_channels();
     //XHR REQUEST DATA
     var clear_data = request_logs();
 
@@ -254,6 +256,7 @@ function RowDetails(message_id){
                 <th data-field="id">Id</th>
                 <th data-field="removed">Removed</th>
                 <th data-field="remove_time">Remove time</th>
+                
                 </tr>
             </thead>
         </table>
@@ -295,3 +298,70 @@ function edit_mark(s1, s2){
     }
     return;
 }
+
+function get_channels(){
+    var result = "";
+    $.ajax({
+        url: "/api/get_channels.php",
+        async: false,
+        success: function (data) {
+            channels = JSON.parse(data);
+            
+            
+        }
+    });
+    return;
+
+}
+
+function channel_formatter(value, row){
+    var channel = channels.find(x => x.id === parseInt(row.channel_id));
+    return channel.name;
+}
+
+//MODAL
+var attachment_modal = document.getElementById('attachment_modal')
+attachment_modal.addEventListener('show.bs.modal', function (event) {
+
+    
+    var button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    var attachment_id = button.getAttribute('data-bs-attachment_id');
+    var message_id = button.getAttribute('data-bs-message_id');
+
+
+    //loading obj
+    var loading = `
+    <div class="d-flex justify-content-center">
+    <div class="spinner-border m-5" role="status">
+    <span class="sr-only">Loading...</span>
+    </div>`;
+
+
+    //Define html obj
+    var modalTitle = attachment_modal.querySelector('.modal-title');
+    var modalBody = attachment_modal.querySelector('.modal-body');
+    modalBody.innerHTML = loading;
+    modalTitle.textContent = 'Attachment: ' + attachment_id;
+
+    // XHR Request
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/api/attachment.php" + `?message_id=${message_id}&attachment_id=${attachment_id}`, true);
+    xhr.onload = function (e) {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                modalBody.innerHTML = `<img src="${xhr.responseURL}" alt="Girl in a jacket"></img>`;
+            } else {
+                console.error(xhr.statusText);
+                modalBody.innerHTML = `<center>Error: ${xhr.statusText} </center>`
+            }
+        }
+    };
+    xhr.onerror = function (e) {
+        console.error(xhr.statusText);
+    };
+    xhr.send(null);
+
+
+})
+

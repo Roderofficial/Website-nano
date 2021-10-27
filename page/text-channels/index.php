@@ -137,7 +137,7 @@ $module_info = data_preview();
                 <tr>
                   <th data-filter-control="input" data-formatter="actionFormatter">Action</th>
                   <th data-field="author_name" data-filter-control="input">Author</th>
-                  <th data-field="channel" data-filter-control="input">Channel</th>
+                  <th data-formatter="channel_formatter" data-field="channel" data-filter-control="input">Channel</th>
                   <th data-formatter="contentFormatter" data-filter-control="input">Content</th>
                   <th data-field="client_id" data-filter-control="input" data-visible="false">Client id</th>
                   <th data-field="channel_id" data-filter-control="input" data-visible="false">Channel id</th>
@@ -147,17 +147,24 @@ $module_info = data_preview();
             </table>
 
           </div>
-          <div class="card-footer">The system displays the last 100 results. To get more of them use the generate function.</div>
+          <div class="card-footer">The system displays the last 100 results from database (dont actions). To get more of them use the generate function.</div>
         </div>
 
 
-
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-attachment_id="902992283207602196" data-bs-message_id="902992285199892482" data-bs-target="#attachment_modal">
+          Launch demo modal
+        </button>
       </main>
+      <?php require('attachment_modal.php'); ?>
     </div>
+
   </div>
 
 
-  <?php require($_SERVER['DOCUMENT_ROOT'] . '/page/addons/scripts.php') ?>
+  <?php
+
+  require($_SERVER['DOCUMENT_ROOT'] . '/page/addons/scripts.php') ?>
   <!-- TABLE -->
   <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
   <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
