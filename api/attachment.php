@@ -11,10 +11,12 @@
     }
     
     if(!isset($_GET['message_id'] ) || !is_numeric($_GET['message_id'])){
+        http_response_code(400);
         exit();
 
     }
     if (!isset($_GET['attachment_id']) || !is_numeric($_GET['attachment_id'])) {
+        http_response_code(400);
         exit();
     }
     @session_start();
