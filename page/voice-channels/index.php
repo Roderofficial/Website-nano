@@ -51,7 +51,7 @@ $module_info = data_preview();
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"><i class="far fa-bell"></i> Message about joining the voice channel</h5>
-              <p class="card-text">When the module is enabled, the text channel of your choice will receive information about who has joined, when, and on what voice channel.</p>
+              <p class="card-text">When the module is enabled, the text channel which you choose will receive information about who has joined, when, and on what voice channel.</p>
               <!-- FORM FIELDS -->
               <div class="row">
                 <div class="col-md-6">
@@ -86,8 +86,8 @@ $module_info = data_preview();
           <!-- LEAVE CARD -->
           <div class="card" style="margin-top:20px;">
             <div class="card-body">
-              <h5 class="card-title"><i class="far fa-bell"></i> Message when leaving the voice channel</h5>
-              <p class="card-text">When you turn on the module, the text channel of your choice will receive information about who left, when, and what voice channel.</p>
+              <h5 class="card-title"><i class="far fa-bell"></i> Message about leaving the voice channel</h5>
+              <p class="card-text">When you turn on the module, the text channel which you choose will receive information about who left, when, and what voice channel.</p>
               <!-- FORM FIELDS -->
               <div class="row">
                 <div class="col-md-6">

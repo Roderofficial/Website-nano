@@ -105,7 +105,7 @@
       <li class="nav-item">
         <a class="nav-link" href="/page/randomgenerator/">
           <i class="fas fa-dice"></i>
-          User drawing
+          Draw a user
         </a>
       </li>
     </ul>

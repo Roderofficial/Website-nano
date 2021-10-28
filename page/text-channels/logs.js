@@ -50,7 +50,11 @@ function contentFormatter(value, row){
 
 // Function convert time UTC to user local on pc
 function timecontrol(value, row){
-    return timeconvert(value);
+    if(value != null || value != ""){
+        return timeconvert(value); 
+    }
+    return null
+    
 }
 
 //Request data
@@ -216,7 +220,7 @@ function RowDetails(message_id){
             <b>Message id: </b> ${message_obj.message_id}<br />
             <b>Channel id: </b> ${message_obj.channel_id}<br />
             <b>Client id: </b> ${message_obj.client_id}<br />
-            <b>Created at: </b> ${timeconvert(message_obj.create_time)}<br />
+            <b>Created on: </b> ${timeconvert(message_obj.create_time)}<br />
             <b>Edited: </b> ${edit}<br />
             <b>Removed: </b> ${remove}<br />
             <b>Attachments: </b> ${attachments_count}<br />
@@ -232,7 +236,7 @@ function RowDetails(message_id){
             <thead>
                 <tr>
                 <th data-field="content">Content</th>
-                <th data-field="datetime">Time</th>
+                <th data-field="datetime" data-formatter="timecontrol">Time</th>
                 </tr>
             </thead>
         </table>

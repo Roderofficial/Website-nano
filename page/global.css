@@ -141,3 +141,7 @@ body {
   margin: auto;
   border:2px solid #fff;
 }
+.modal_control_attachment{
+  max-width: 100%;
+  width: max-content;
+}

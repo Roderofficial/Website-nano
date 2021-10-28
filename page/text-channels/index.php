@@ -60,7 +60,7 @@ $module_info = data_preview();
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"><i class="far fa-trash-alt"></i> Deleted message information</h5>
-              <p class="card-text">Information about deleted messages will be sent to the channel you specified.</p>
+              <p class="card-text">Information about deleted messages will be sent to the channel that you specified.</p>
               <!-- FORM FIELDS -->
               <div class="row">
                 <div class="col-md-6">
@@ -96,7 +96,7 @@ $module_info = data_preview();
           <div class="card" style="margin-top:20px;">
             <div class="card-body">
               <h5 class="card-title"><i class="far fa-edit"></i> Edited message information</h5>
-              <p class="card-text">When the module is enabled, the text channel of your choice will receive information about who left, when, and what voice channel.</p>
+              <p class="card-text">When the module is enabled, the text channel which you choose will receive information about changes in sent messages by users.</p>
               <!-- FORM FIELDS -->
               <div class="row">
                 <div class="col-md-6">
@@ -147,7 +147,7 @@ $module_info = data_preview();
             </table>
 
           </div>
-          <div class="card-footer">The system displays the last 100 results from database (dont actions). To get more of them use the generate function.</div>
+          <div class="card-footer">The system displays the last 100 results from database (not actions). To get more results use generate function option.</div>
         </div>
 
 

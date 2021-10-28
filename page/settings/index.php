@@ -43,7 +43,7 @@ $guild_info = json_decode($data['body'], true);
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"><i class="fas fa-bell"></i> Prefix</h5>
-              <p class="card-text">You can select a string before giving the command to the bot. Default: #</p>
+              <p class="card-text">You can select a string before typing the command to the bot. Default: #</p>
               <input class="form-control" name="prefix" type="text" placeholder="Prefix" min="1" value="<?php echo get_prefix($_SESSION['selected_guild']); ?>" required>
             </div>
           </div>
