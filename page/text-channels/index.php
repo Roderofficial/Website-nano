@@ -151,10 +151,6 @@ $module_info = data_preview();
         </div>
 
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-attachment_id="902992283207602196" data-bs-message_id="902992285199892482" data-bs-target="#attachment_modal">
-          Launch demo modal
-        </button>
       </main>
       <?php require('attachment_modal.php'); ?>
     </div>

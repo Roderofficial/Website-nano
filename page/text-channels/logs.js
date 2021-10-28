@@ -73,9 +73,6 @@ function getData(){
     //JSON DECODE
     xhr_data_obj = JSON.parse(clear_data);
     logs = generateActions(xhr_data_obj);
-    //console.log('end');
-    //console.log(logs)
-    //CHANGE INDEX OF ARRAY
     return logs;
 }
 
@@ -193,8 +190,6 @@ function RowDetails(message_id){
 
     //MAIN FUNCTION RETURNING DATA
     function return_data(){
-        console.log(xhr_data_obj);
-        console.log(message_obj);
         return `<div class="row">` + simple_data() + table_edit(message_id) + attachments_edit(message_id) + `</div>`;
     }
     
@@ -341,7 +336,9 @@ attachment_modal.addEventListener('show.bs.modal', function (event) {
     //Define html obj
     var modalTitle = attachment_modal.querySelector('.modal-title');
     var modalBody = attachment_modal.querySelector('.modal-body');
+    var modalFooter = attachment_modal.querySelector('.modal-footer');
     modalBody.innerHTML = loading;
+    modalFooter.innerHTML = null;
     modalTitle.textContent = 'Attachment: ' + attachment_id;
 
     // XHR Request
@@ -350,10 +347,12 @@ attachment_modal.addEventListener('show.bs.modal', function (event) {
     xhr.onload = function (e) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                modalBody.innerHTML = `<img src="${xhr.responseURL}" alt="Girl in a jacket"></img>`;
+                modalBody.innerHTML = `<img src="${xhr.responseURL}" class="attachment_image"></img>`;
+                modalFooter.innerHTML = `<a href=${xhr.responseURL} type="button" class="btn btn-secondary" id="attachment_raw">Show full file</a>`;
+
             } else {
                 console.error(xhr.statusText);
-                modalBody.innerHTML = `<center>Error: ${xhr.statusText} </center>`
+                modalBody.innerHTML = `<center>Error: (${xhr.status}) <br />${xhr.statusText} </center>`
             }
         }
     };

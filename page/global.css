@@ -135,3 +135,9 @@ body {
 .log-badge{
   margin-right:5px;
 }
+.attachment_image{
+  max-width:100%;
+  display: block;
+  margin: auto;
+  border:2px solid #fff;
+}
