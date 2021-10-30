@@ -132,7 +132,7 @@ $module_info = data_preview();
         <div class="card" style="margin-top:20px;">
           <div class="card-header"><i class="far fa-edit" style="color: #ffc800;"></i> Edit logs</div>
           <div class="card-body">
-            <table id="table" style="max-width:100%;" data-toggle="table" data-show-pagination-switch="true" data-show-toggle="true" data-show-refresh="true" data-show-export="true" data-show-jump-to="true" data-detail-view="true" data-filter-control="true" data-show-search-clear-button="true" data-sortable="true" data-pagination="true" data-mobile-responsive="true" data-row-style="rowStyle">
+            <table id="table" style="max-width:100%;" data-toggle="table" data-show-toggle="true" data-show-refresh="true" data-show-export="true" data-show-jump-to="true" data-detail-view="true" data-filter-control="true" data-show-search-clear-button="true" data-sortable="true" data-pagination="true" data-mobile-responsive="true" data-row-style="rowStyle">
               <thead>
                 <tr>
                   <th data-filter-control="input" data-formatter="actionFormatter">Action</th>

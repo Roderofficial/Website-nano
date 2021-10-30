@@ -1,3 +1,4 @@
+<script src="https://cdn.jsdelivr.net/gh/jitbit/HtmlSanitizer@master/HtmlSanitizer.js"></script>
 <script src="/assets/moment.min.js"></script>
 <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/requestmanager.js"></script>

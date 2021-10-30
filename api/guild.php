@@ -98,9 +98,8 @@ function guild_text_channels($guild_id)
 {
     require_once('request.php');
     require($_SERVER['DOCUMENT_ROOT'] . '/config.php');
-    $url = $config['discord_api_url'] . "/guilds/" . $guild_id . '/channels';
 
-    $data = api_request($url);
+    $data = bot_request('/channels?id='.$guild_id);
     //var_dump($data);
 
     #return

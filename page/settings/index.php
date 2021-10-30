@@ -48,6 +48,14 @@ $guild_info = json_decode($data['body'], true);
             </div>
           </div>
 
+          <!-- LANG CARD-->
+          <div class="card" style="margin-top:20px;">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-language"></i> Bot language</h5>
+              <?php require('lang_picker.php') ?>
+            </div>
+          </div>
+
           <button type="submit" class="btn btn-primary" style="float:right; margin-top:20px;">SAVE</button>
         </form>
       </main>

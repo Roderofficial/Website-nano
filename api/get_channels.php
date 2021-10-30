@@ -2,7 +2,7 @@
     @session_start();
     require_once('secure.php');
     require_login(false);
-    require_guild();
+    require_guild(false);
 
     
 

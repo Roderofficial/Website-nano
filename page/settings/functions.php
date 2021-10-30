@@ -11,4 +11,16 @@ function get_prefix($guild_id){
     }
 }
 
+function get_lang($guild_id)
+{
+    require $_SERVER['DOCUMENT_ROOT'] . '/api/module_settings.php';
+    require $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+
+    $settings = module_settings_download($guild_id, 'global');
+    if(isset($settings['lang'])){
+        return $settings['lang'];
+    }else{
+        return $config['default_bot_lang'];
+    }
+}
 ?>

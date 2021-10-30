@@ -67,13 +67,13 @@
     </h6>
     <ul class="nav flex-column mb-2">
       <li class="nav-item">
-        <a class="nav-link" href="/page/randomgenerator/">
+        <a class="nav-link" href="">
           <i class="fas fa-dice"></i>
           Kick members
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/page/jlmessages/">
+        <a class="nav-link" href="">
           <i class="fas fa-cog"></i>
           Ban members
         </a>
@@ -97,13 +97,13 @@
     </h6>
     <ul class="nav flex-column mb-2">
       <li class="nav-item">
-        <a class="nav-link" href="/page/welcome-message/">
+        <a class="nav-link" href="">
           <i class="fas fa-comment"></i>
           Welcome messages
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/page/randomgenerator/">
+      <li class="nav-item" disabled>
+        <a class="nav-link" href="">
           <i class="fas fa-dice"></i>
           Draw a user
         </a>

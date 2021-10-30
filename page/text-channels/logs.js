@@ -34,12 +34,17 @@ function contentFormatter(value, row){
             }
         }
 
-        return row.message + attachments;
+        return sanitizeHTML(row.message) + attachments;
     }else if (row.action == 1){
-        object = `
-        <span class="badge bg-success">After</span> `+ row.message_after + `
+        if (row.message_after != row.message_before){
+            object = `
+        <span class="badge bg-success">After</span> `+ sanitizeHTML(row.message_after) + `
         <hr />
-        <span class="badge bg-light text-dark">Before</span> `+ row.message_before;
+        <span class="badge bg-light text-dark">Before</span> `+ sanitizeHTML(row.message_before);
+        }else{
+            return null;
+        }
+
         
         return object;
     }else if (row.action == 2){
@@ -50,7 +55,7 @@ function contentFormatter(value, row){
 
 // Function convert time UTC to user local on pc
 function timecontrol(value, row){
-    if(value != null || value != ""){
+    if(value != undefined){
         return timeconvert(value); 
     }
     return null
@@ -235,7 +240,7 @@ function RowDetails(message_id){
         <table id="edit_${message_id}">
             <thead>
                 <tr>
-                <th data-field="content">Content</th>
+                <th data-field="content" data-formatter="string_secure">Content</th>
                 <th data-field="datetime" data-formatter="timecontrol">Time</th>
                 </tr>
             </thead>
@@ -254,7 +259,7 @@ function RowDetails(message_id){
                 <tr>
                 <th data-field="id">Id</th>
                 <th data-field="removed">Removed</th>
-                <th data-field="remove_time">Remove time</th>
+                <th data-field="remove_time" data-formatter="timecontrol">Remove time</th>
                 
                 </tr>
             </thead>
@@ -367,4 +372,10 @@ attachment_modal.addEventListener('show.bs.modal', function (event) {
 
 
 })
+function sanitizeHTML (str) {
+    return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+};
 
+function string_secure(value,row){
+    return sanitizeHTML(value);
+}
