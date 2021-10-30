@@ -23,9 +23,8 @@ function guild_access($guild_id){
 function guild_channels($guild_id){
     require_once('request.php');
     require($_SERVER['DOCUMENT_ROOT'].'/config.php');
-    $url=$config['discord_api_url']."/guilds/".$guild_id.'/channels';
 
-    $data = api_request($url);
+    $data = bot_request('/channels?id='.$guild_id);
     //var_dump($data);
 
     #return
@@ -87,7 +86,12 @@ function guild_text_channels_list($guild_id,$selected_channel_id=null)
             $selected = null;
         }
         if($channels[$i]["type"] == 0){
-            $html = $html . '<option value="' . $channels[$i]["id"] . '" ' . $selected.'>#' . $channels[$i]["name"] . '</option>';
+            if($channels[$i]["category"] != null){
+                $cate = " (".htmlspecialchars($channels[$i]["category"]).")";
+            }else{
+                $cate = null;
+            }
+            $html = $html . '<option value="' . $channels[$i]["id"] . '" ' . $selected.'>#' . $channels[$i]["name"] . $cate . '</option>';
         }
     }
 
@@ -106,7 +110,7 @@ function guild_text_channels($guild_id)
     return $data;
 }
 function get_attachment($id){
-    $data = bot_request('/attachment?id=886600565025538118');
+    $data = bot_request('/attachment?id='.$id);
     if($data['response_code' == 200]){
 
     }else{
