@@ -62,52 +62,5 @@
       </li>
     </ul>
 
-    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-      <span>MODERATION</span>
-    </h6>
-    <ul class="nav flex-column mb-2">
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="fas fa-dice"></i>
-          Kick members
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="fas fa-cog"></i>
-          Ban members
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="file-text"></span>
-          Mute members
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="file-text"></span>
-          Warning system
-        </a>
-      </li>
-    </ul>
-
-    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-      <span>FUN</span>
-    </h6>
-    <ul class="nav flex-column mb-2">
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="fas fa-comment"></i>
-          Welcome messages
-        </a>
-      </li>
-      <li class="nav-item" disabled>
-        <a class="nav-link" href="">
-          <i class="fas fa-dice"></i>
-          Draw a user
-        </a>
-      </li>
-    </ul>
   </div>
 </nav>

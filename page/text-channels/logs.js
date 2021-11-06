@@ -173,6 +173,8 @@ function gen_removed_attachments(logs){
 // GENERATE TABLE
 $('#table').bootstrapTable({
     data: getData(),
+    exportTypes: ['json', 'xml', 'csv', 'txt', 'sql', 'xlsx', 'doc', 'pdf', 'png'],
+    exportOptions: { ignoreColumn: [0] },
     onExpandRow: function (index, row, $detail) {
         /* eslint no-use-before-define: ["error", { "functions": false }]*/
         $detail.html(RowDetails(row.message_id));

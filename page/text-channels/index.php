@@ -14,7 +14,7 @@ $module_info = data_preview();
 
 ?>
 <!doctype html>
-<html lang="en">
+<html>
 
 <head>
 
@@ -132,13 +132,14 @@ $module_info = data_preview();
         <div class="card" style="margin-top:20px;">
           <div class="card-header"><i class="far fa-edit" style="color: #ffc800;"></i> Edit logs</div>
           <div class="card-body">
-            <table id="table" style="max-width:100%;" data-toggle="table" data-show-toggle="true" data-show-refresh="true" data-show-export="true" data-show-jump-to="true" data-detail-view="true" data-filter-control="true" data-show-search-clear-button="true" data-sortable="true" data-pagination="true" data-mobile-responsive="true" data-row-style="rowStyle">
+            <table id="table" style="max-width:100%;" data-toggle="table" data-show-toggle="true" data-show-jump-to="true" data-detail-view="true" data-filter-control="true" data-show-search-clear-button="true" data-sortable="true" data-pagination="true" data-mobile-responsive="true" data-show-export="true" data-show-columns="true" data-row-style="rowStyle">
               <thead>
                 <tr>
                   <th data-filter-control="input" data-formatter="actionFormatter">Action</th>
                   <th data-field="author_name" data-filter-control="input">Author</th>
                   <th data-formatter="channel_formatter" data-field="channel" data-filter-control="input">Channel</th>
                   <th data-formatter="contentFormatter" data-filter-control="input">Content</th>
+                  <th data-field="message_id" data-filter-control="input" data-visible="false">Message id</th>
                   <th data-field="client_id" data-filter-control="input" data-visible="false">Client id</th>
                   <th data-field="channel_id" data-filter-control="input" data-visible="false">Channel id</th>
                   <th data-field="action_time" data-formatter="timecontrol">Time</th>
@@ -162,9 +163,17 @@ $module_info = data_preview();
 
   require($_SERVER['DOCUMENT_ROOT'] . '/page/addons/scripts.php') ?>
   <!-- TABLE -->
+
   <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
   <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
   <script src="/assets/timeconvert.js"></script>
+  <!-- EXPORT -->
+  <script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/tableExport.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/extensions/export/bootstrap-table-export.min.js"></script>
+  <!-- PDF -->
+  <script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/libs/jsPDF/jspdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
   <script src="text-channel.js"></script>
   <script src="logs.js"></script>
 

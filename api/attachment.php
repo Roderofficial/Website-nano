@@ -1,4 +1,11 @@
 <?php
+@session_start();
+require_once('secure.php');
+require_login(true);
+require_guild(true);
+
+
+
     function find_attachment($data, $attachment_id){
         $data = json_decode($data, 1);
         foreach($data as $att){

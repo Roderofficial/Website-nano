@@ -23,3 +23,7 @@ function timecontrol(value) {
 function channelstyle(value){
     return '<i class="fas fa-microphone-alt"></i> ' + value
 }
+// GENERATE TABLE
+$('#table').bootstrapTable({
+    exportTypes: ['json', 'xml', 'csv', 'txt', 'sql', 'xlsx', 'doc', 'pdf', 'png']
+})
